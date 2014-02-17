@@ -1,4 +1,4 @@
 scripts
 =======
 
-test repository
+A test repository.
