@@ -185,7 +185,7 @@
 ;;(set-frame-width (selected-frame)  100)
 (setq default-frame-alist
       '((top . 5) (left . 3)
-        (width . 220) (height . 63)))
+        (width . 100) (height . 63)))
 
 (setq ruby-indent-level 4)
 
@@ -334,11 +334,11 @@
 ;;(paren-set-mode 'blink-paren)
 
 ;; I am picky about what colors to use when matching parens.
-(set-face-foreground 'show-paren-match-face "Black")
-(set-face-background 'show-paren-match-face "Black")
+(set-face-foreground 'show-paren-match-face "skyblue")
+(set-face-background 'show-paren-match-face "skyblue")
 
-(set-face-foreground 'show-paren-mismatch-face "Black")
-(set-face-background 'show-paren-mismatch-face "Black")
+(set-face-foreground 'show-paren-mismatch-face "skyblue")
+(set-face-background 'show-paren-mismatch-face "skyblue")
 
 (put 'scroll-left 'disabled nil)
 
