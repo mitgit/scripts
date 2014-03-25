@@ -312,8 +312,11 @@
 
 ;; Start emacs server.  If the error 'The directory ... is unsafe.' happens, go
 ;; to the directory and change the owner from Administrator to your user account.
-(if window-system
-    (server-start))
+;;(if window-system
+;;    (server-start))
+;;(require 'server)
+;;(or (server-running-p)
+;;    (server-start))
 
 ;; Prevent prompting about emacsclientw still waiting for file to be edited when killing buffer.
 ;; This must be done after starting the server.

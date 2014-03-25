@@ -1,0 +1,12 @@
+[user]
+	name = amschwarz
+	email = allison.schwarz@tradingtechnologies.com
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[difftool]
+	prompt = false
+[core]
+	editor = emacs
+	excludesfile = /home/aschwarz/.gitignore_user
