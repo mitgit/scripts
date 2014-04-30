@@ -138,16 +138,16 @@
 
 ;; Was experimenting with these two but never had a good use for them,
 ;; hence they haven't been added to any keyboard binding.
-(defun select-next-window ()
-  "Switch to the next window."
-  (interactive)
-  (select-window (next-window))
-)
-(defun select-previous-window ()
-  "Switch to the previous window."
-  (interactive)
-  (select-window (previous-window))
-)
+;;(defun select-next-window ()
+;;  "Switch to the next window."
+;;  (interactive)
+;;  (select-window (next-window))
+;;)
+;;(defun select-previous-window ()
+;;  "Switch to the previous window."
+;;  (interactive)
+;;  (select-window (previous-window))
+;;)
 
 ;; Load my custom compile commands.
 ;;(load-file "~/.emacs.d/custom-compile.el")
