@@ -1,5 +1,5 @@
 scripts
 =======
 
-A new test repository.
+A modified test repository.
 Additional information.
