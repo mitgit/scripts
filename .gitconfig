@@ -1,12 +1,48 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[alias]
+	ct = !git add -A && git commit -m
+	lg = log --pretty --oneline
+
+	# Unstage any files that have been added to the staging area
+	unstage = reset HEAD
+	# Show changes that have been staged
+	diffc = diff --cached
+
+	#get latest develop from upstream
+	dlatest = !"git fetch upstream && git branch -M develop develop-backup && git checkout -t upstream/develop"
+	
+	#create release branch, arg = version number
+	rbranch = "!f() { ver=$1; git dlatest && git checkout -b release-$ver && git push upstream release-$ver;}; f"
+	
+	#get latest master from upstream
+	mlatest = !"git fetch upstream && git checkout master && git merge upstream/master"
+	
+	#merge release to master, arg = version number
+	rtomaster = "!f() { ver=$1; git mlatest && git merge upstream/release-$ver && git push upstream master && git tag $ver && git push upstream --tags;}; f"
+	
+	#update develop with release
+	dupdate = !"git dlatest && git rebase upstream/master && echo && echo ++++++++ ATTENTION: Fix rebase conflicts and then do: git dforcepush +++++++++++++ && echo"
+	dforcepush = !"git push --force upstream develop"
 [user]
 	name = amschwarz
-	email = allison.schwarz@tradingtechnologies.com
+	email = allison.schwarz@sproutsocial.com
 [diff]
-	tool = meld
-[merge]
-	tool = meld
+  tool = meld
 [difftool]
-	prompt = false
-[core]
-	editor = emacs
-	excludesfile = /home/aschwarz/.gitignore_user
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+#[core]
+	#editor = emacs
+	#excludesfile = /home/aschwarz/.gitignore_user
